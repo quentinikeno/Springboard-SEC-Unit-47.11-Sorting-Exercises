@@ -25,6 +25,15 @@ function merge(arr1, arr2) {
 	return result;
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+	// base case
+	if (arr.length <= 1) return arr;
+
+	//typical case
+	const mid = Math.floor(arr.length / 2);
+	const left = mergeSort(arr.slice(0, mid));
+	const right = mergeSort(arr.slice(mid));
+	return merge(left, right);
+}
 
 module.exports = { merge, mergeSort };
